@@ -8,8 +8,6 @@ namespace router_test.Views
         public ListView()
         {
             InitializeComponent();
-
-            Console.WriteLine("ListView");
         }
     }
 }
