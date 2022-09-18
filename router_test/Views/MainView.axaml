@@ -6,7 +6,6 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="router_test.Views.MainView"
              Foreground="White">
-
   <Design.DataContext>
     <viewModels:MainViewModel />
   </Design.DataContext>
