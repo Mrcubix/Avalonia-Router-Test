@@ -39,10 +39,16 @@ namespace router_test.ViewModels
 
             if (vm is PagedViewModelBase pagedVM)
             {
+                if (viewModelNames.Contains(pagedVM.GetPageName()))
+                    return;
+                
                 ViewModelNames.Add(pagedVM.GetPageName());
             }
             else
             {
+                if (viewModelNames.Contains(vm.GetType().Name))
+                    return;
+
                 ViewModelNames.Add(vm.GetType().Name);
             }
             

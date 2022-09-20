@@ -7,9 +7,10 @@ namespace router_test.ViewModels
     {
         public string ListViewText { get; } = "List View";
         // Just example items for test purposes 
-        public Example[] ItemList { get; } = {new Example("Item 1"), new Example("Item 2"), new Example("Item 3"), new Example("Item 4"), new Example("Item 5"), new Example("Item 6"), new Example("Item 7"), new Example("Item 8"), new Example("Item 9"), new Example("Item 10"), new Example("Item 11"), new Example("Item 12"), new Example("Item 13"), new Example("Item 14"), new Example("Item 15"), new Example("Item 16"), new Example("Item 17"), new Example("Item 18")};
-        private ObservableCollection<Example> currentItemList = new();
+        private Example[] ItemList { get; } = {new Example("Item 1"), new Example("Item 2"), new Example("Item 3"), new Example("Item 4"), new Example("Item 5"), new Example("Item 6"), new Example("Item 7"), new Example("Item 8"), new Example("Item 9"), new Example("Item 10"), new Example("Item 11"), new Example("Item 12"), new Example("Item 13"), new Example("Item 14"), new Example("Item 15"), new Example("Item 16"), new Example("Item 17"), new Example("Item 18")};
+        public ObservableCollection<Example> currentItemList = new();
         public int PageNumber { get; set; } = 0;
+        public int Count { get; set; } = 10;
 
         public ListViewModel(ViewRemote remote, int number)
         {
@@ -20,7 +21,7 @@ namespace router_test.ViewModels
 
         public void InitCurrentList()
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < this.Count; i++)
             {
                 CurrentItemList.Add(ItemList[i]);
             }
@@ -28,14 +29,14 @@ namespace router_test.ViewModels
 
         public void NextPage() 
         {
-            if (ItemList.Length <= PageNumber * 10 + 10)
+            if (ItemList.Length <= PageNumber * this.Count + this.Count)
                 return;
 
             PageNumber++;
 
-            int start = PageNumber * 10;
-            int end = start + 10 > ItemList.Length ? ItemList.Length : start + 10;
-            int realEnd = start + 10;
+            int start = PageNumber * this.Count;
+            int end = start + this.Count > ItemList.Length ? ItemList.Length : start + this.Count;
+            int realEnd = start + this.Count;
 
             for (int i = start; i < realEnd; i++)
             {
@@ -57,8 +58,8 @@ namespace router_test.ViewModels
 
             PageNumber--;
 
-            int start = PageNumber * 10;
-            int end = start + 10 > ItemList.Length ? ItemList.Length : start + 10;
+            int start = PageNumber * this.Count;
+            int end = start + this.Count > ItemList.Length ? ItemList.Length : start + this.Count;
 
             for (int i = start; i < end; i++)
             {  
@@ -69,7 +70,7 @@ namespace router_test.ViewModels
 
         public string GetPageName()
         {
-            return $"List-{PageNumber}";
+            return $"Example-List";
         }
 
         public ObservableCollection<Example> CurrentItemList

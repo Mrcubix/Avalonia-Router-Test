@@ -5,13 +5,14 @@
              xmlns:viewModels="clr-namespace:router_test.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="router_test.Views.MainView"
-             Foreground="White"
-             Background="#171C2C">
+             Foreground="White">
+
   <Design.DataContext>
     <viewModels:MainViewModel />
   </Design.DataContext>
+  
   <Panel>
     <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-    <Button Command="{Binding Remote.ShowView}" CommandParameter="List-0" Margin="0,100,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">Go to List Page 0</Button>
+    <Button Command="{Binding Remote.ShowView}" CommandParameter="Example-List" Margin="0,100,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">Go to List Page 0</Button>
   </Panel>
 </UserControl>
