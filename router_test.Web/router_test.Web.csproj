@@ -4,14 +4,15 @@
     <Nullable>enable</Nullable>
     <!--Temporal hack that fixes compilation in VS-->
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <DebuggerSupport>true</DebuggerSupport>
   </PropertyGroup>
 
   <!-- In debug, make builds faster by reducing optimizations -->
-  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+  <!--<PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <WasmNativeStrip>false</WasmNativeStrip>
     <EmccCompileOptimizationFlag>-O1</EmccCompileOptimizationFlag>
     <RunAOTCompilation>false</RunAOTCompilation>
-  </PropertyGroup>
+  </PropertyGroup>-->
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <Optimize>true</Optimize>
