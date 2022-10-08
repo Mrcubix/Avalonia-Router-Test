@@ -5,7 +5,7 @@ namespace router_test.ViewModels
 {
     public class ViewRemote : ReactiveObject
     {
-        private ViewModelBase currentViewModel;
+        private ViewModelBase currentViewModel = null!;
         private ObservableCollection<string> viewModelNames = new();
         private ObservableCollection<ViewModelBase> viewModels = new();
 

@@ -7,12 +7,9 @@ namespace router_test.ViewModels
     {
         private string greeting = "Welcome to Avalonia!";
 
-        public MainViewModel()
+        public MainViewModel(ViewRemote remote)
         {
-            Remote.AddVM(this);
-            Remote.AddVM(new ListViewModel(Remote, 0));
-
-            Remote.CurrentViewModel = this;
+            Remote = remote;
         }
 
         public string Greeting 
