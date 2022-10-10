@@ -5,6 +5,8 @@
              xmlns:viewModels="clr-namespace:router_test.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="router_test.Views.MainView"
+			 x:CompileBindings="True"
+			 x:DataType="viewModels:MainViewModel"
              Foreground="White">
   <Design.DataContext>
     <viewModels:MainViewModel />
